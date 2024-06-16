@@ -20,7 +20,7 @@ public class TrialVaultSharedDataMixin {
     @ModifyArg(method = "updateConnectedPlayers", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;"))
     private Predicate<UUID> checkCooldowns(Predicate<UUID> predicate, @Local(argsOnly = true) VaultServerData serverData) {
 
-        return predicate.and(uuid -> {return !(((TrialVaultServerDataAccess)serverData).trialrestock$getPlayerCooldowns().containsKey(uuid));});
+        return uuid -> {return !(((TrialVaultServerDataAccess)serverData).trialrestock$getPlayerCooldowns().containsKey(uuid));};
 
     }
 

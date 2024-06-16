@@ -3,7 +3,7 @@
   "text.config.trialrestock-config.option.costIncrease": "Key Cost Increase",
   "text.config.trialrestock-config.option.costIncrease.tooltip": "Amount to increase key cost by each opening. Set to 0 to disable.",
   "text.config.trialrestock-config.option.restockDelay": "Restock Cooldown",
-  "text.config.trialrestock-config.option.restockDelay.tooltip": "Downtime between vault opening and becoming unlockable again.",
+  "text.config.trialrestock-config.option.restockDelay.tooltip": "Downtime between vault opening and becoming unlockable again. (In ticks)",
   "text.config.trialrestock-config.title": "Trial Vault Restock"
 
 }

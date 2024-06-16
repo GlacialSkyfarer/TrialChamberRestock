@@ -1,5 +1,6 @@
 package com.trialrestock.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.trialrestock.TrialVaultServerDataAccess;
 import it.unimi.dsi.fastutil.objects.Object2LongArrayMap;
 import joptsimple.util.KeyValuePair;
@@ -73,6 +74,13 @@ public class TrialVaultServerMixin {
         }
 
         ((TrialVaultServerDataAccess)serverData).trialrestock$setPlayerCooldowns(playerCooldowns);
+
+    }
+
+    @ModifyExpressionValue(method = "tryUnlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/vault/VaultServerData;hasRewardedPlayer(Lnet/minecraft/entity/player/PlayerEntity;)Z"))
+    private static boolean removeRewardedCheck(boolean original) {
+
+        return false;
 
     }
 
