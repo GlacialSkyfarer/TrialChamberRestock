@@ -1,16 +1,16 @@
 package com.trialrestock.mixin;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.trialrestock.TrialVaultServerDataAccess;
-import it.unimi.dsi.fastutil.ints.IntCollection;
 import it.unimi.dsi.fastutil.objects.Object2IntArrayMap;
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2LongArrayMap;
-import it.unimi.dsi.fastutil.objects.ObjectSet;
 import net.minecraft.block.vault.VaultServerData;
+import net.minecraft.block.vault.VaultSharedData;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Util;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Uuids;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -46,6 +46,11 @@ public class TrialVaultServerDataMixin implements TrialVaultServerDataAccess {
     public void trialrestock$setPlayerCooldowns(Object2LongArrayMap<UUID> value) {
 
         trialrestock$playerCooldowns = value;
+
+    }
+    public void trialrestock$setPlayerCosts(Object2IntArrayMap<UUID> value) {
+
+        trialrestock$playerCosts = value;
 
     }
 

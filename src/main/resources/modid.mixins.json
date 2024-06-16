@@ -1,14 +1,15 @@
 {
-	"required": true,
-	"package": "com.trialrestock.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"TrialVaultServerMixin",
-		"TrialVaultServerDataMixin",
-		"TrialVaultServerDataAccessor",
-		"TrialVaultSharedDataMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "com.trialrestock.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "TrialVaultServerDataAccessor",
+    "TrialVaultServerDataMixin",
+    "TrialVaultServerMixin",
+    "TrialVaultSharedDataMixin",
+    "VaultBlockEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
