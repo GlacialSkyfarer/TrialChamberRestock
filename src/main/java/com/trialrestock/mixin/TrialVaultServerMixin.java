@@ -15,6 +15,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -51,6 +52,7 @@ public class TrialVaultServerMixin {
 
         if (stack.getCount() < ((TrialVaultServerDataAccess)serverData).trialrestock$getPlayerCosts().getOrDefault(player.getUuid(),1)) {
             playFailedUnlockSound(world, serverData, pos, SoundEvents.BLOCK_VAULT_INSERT_ITEM_FAIL);
+            player.sendMessage(Text.of("You need " + ((TrialVaultServerDataAccess)serverData).trialrestock$getPlayerCosts().getOrDefault(player.getUuid(),1) + " keys to open this vault!"), true);
             ci.cancel();
         }
         if (((TrialVaultServerDataAccess)serverData).trialrestock$getPlayerCooldowns().containsKey(player.getUuid())) {
