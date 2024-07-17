@@ -25,7 +25,6 @@
 		"minecraft": "~1.20.6",
 		"java": ">=21",
 		"fabric-api": "*",
-		"modmenu": ">=10.0.0-beta.1",
 		"owo-lib": ">=0.12.9+1.20.5"
 	},
 	"suggests": {
