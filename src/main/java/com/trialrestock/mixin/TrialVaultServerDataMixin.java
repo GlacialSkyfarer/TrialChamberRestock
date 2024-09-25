@@ -69,7 +69,7 @@ public class TrialVaultServerDataMixin implements TrialVaultServerDataAccess {
 
         } else {
 
-            trialrestock$playerCosts.putIfAbsent(player.getUuid(), 2);
+            trialrestock$playerCosts.putIfAbsent(player.getUuid(), 1 + CONFIG.costIncrease());
 
         }
 
